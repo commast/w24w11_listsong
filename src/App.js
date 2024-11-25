@@ -3,9 +3,27 @@ import Container from './Container.js'
 
 const App = () => {
   const songs = [
-    "사랑에 연습이 있었다면",
-    "사건의 지평선",
-    "사랑은 늘 도망가",
+    {
+      id: 1,
+      title: "사랑에 연습이 있었다면",
+      singer: "임재현",
+      rating: 5,
+      lyrics: null,
+    },
+    {
+      id: 2,
+      title: "사건의 지평선",
+      singer: "윤하",
+      rating: 3,
+      lyrics: null,
+    },
+    {
+      id: 3,
+      title: "사랑은 늘 도망가",
+      singer: "임영웅",
+      rating: 3,
+      lyrics: null,
+    },
   ]
 
   return (
@@ -29,12 +47,11 @@ const Playlist = props => {
     <div className='playlist'>
       <div className="playlist">{props.title}</div>
       {
-        props.listSong.map((song, index) => (
-          <Container
-           key ={index}
-           title={song}
-           index={index}/>    
-        ))
+        props.listSong.map(song => 
+          <Container key={song.id} 
+          title={song.title}
+           index={song.id}/>
+        )
       }
     </div>
   )
