@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import {FaStar} from 'react-icons/fa'
 const Container = (props) => {
   const [lyricsExpanded, setLyricsExpanded] = useState(false)
 
@@ -16,10 +16,14 @@ const Container = (props) => {
             onClick={toggleLyrics}/>
           <a 
             href={`https://www.youtube.com/results?search_query=${props.song.title}`}
-            target="_blank"
-            rel="noreferrer">
+            target="_blank">
             <div className="song-title">
               {`${props.song.title} (${props.song.singer})`}
+            </div>
+            <div className="song-rating">
+              {[...Array(props.song.rating)].map((_,index)=>
+              <FaStar key ={index}/>
+              )}
             </div>
           </a>
         </div>
